@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Perfume } from 'src/app/models/perfume.model';
+import { PerfumesService } from 'src/app/services/perfumes.service';
 
 @Component({
   selector: 'app-product-list',
@@ -8,34 +10,12 @@ import { Perfume } from 'src/app/models/perfume.model';
 })
 export class ProductListComponent implements OnInit {
 
-  perfumes: Perfume[] = [{
-    name: 'Dior homme intense',
-    role: 'men',
-    description: 'Very good perfume. You should buy it, trust me, you wont make a mistake, its made mmmm',
-    imageUrl: 'https://fimgs.net/mdimg/perfume/375x500.13016.jpg',
-    rating: 5.0,
-    users: {
-      username: 'Christian',
-      rating: 5,
-      comment: 'Very good'
-    }
-  },
-    {
-      name: 'Dior homme intense',
-      role: 'men',
-      description: 'Very good perfume. You should buy it, trust me, you wont make a mistake, its made mmmm',
-      imageUrl: 'https://fimgs.net/mdimg/perfume/375x500.13016.jpg',
-      rating: 5.0,
-      users: {
-        username: 'Christian',
-        rating: 5,
-        comment: 'Very good'
-      }
-    }];
+  perfumes: Perfume[] = [];
 
-  constructor() { }
+  constructor(private _perfumesService: PerfumesService) { }
 
   ngOnInit() {
+    this.perfumes = this._perfumesService.getAllPerfumes();
   }
 
 }
