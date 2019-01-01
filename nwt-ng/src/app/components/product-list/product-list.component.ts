@@ -10,12 +10,14 @@ import { PerfumesService } from 'src/app/services/perfumes.service';
 })
 export class ProductListComponent implements OnInit {
 
-  perfumes: Perfume[] = [];
+  perfumes: Perfume[];
 
-  constructor(private _perfumesService: PerfumesService) { }
+  constructor(private _perfumesService: PerfumesService) {}
 
   ngOnInit() {
-    this.perfumes = this._perfumesService.getAllPerfumes();
+    this._perfumesService.getPerfumes().subscribe(data => {
+      this.perfumes = data;
+    });
   }
 
 }

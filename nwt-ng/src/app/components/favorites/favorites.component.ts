@@ -7,7 +7,6 @@ import { Perfume } from 'src/app/models/perfume.model';
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent implements OnInit {
-  
   perfume: Perfume = {
     name: 'Dior homme intense',
     role: 'men',
@@ -15,11 +14,11 @@ export class FavoritesComponent implements OnInit {
       'Very good perfume. You should buy it, trust me, you wont make a mistake, its made mmmm',
     imageUrl: 'https://fimgs.net/mdimg/perfume/375x500.13016.jpg',
     rating: 5.0,
-    users: {
+    users: [{
       username: 'Christian',
       rating: 5,
       comment: 'Very good'
-    }
+    }]
   };
 
   constructor() { }
