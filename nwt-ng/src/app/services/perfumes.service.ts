@@ -1,6 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 import { Perfume } from '../models/perfume.model';
 
@@ -8,10 +7,20 @@ import { Perfume } from '../models/perfume.model';
 export class PerfumesService {
     private _url = '../../assets/perfumes.json';
     perfumesArrayChanged = new EventEmitter<Perfume[]>();
+    perfumes: Perfume[] = [];
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {
+      this.http.get<Perfume[]>(this._url).subscribe((data) => {
+        this.perfumes = data;
+        this.perfumesArrayChanged.emit(this.perfumes.slice());
+      });
+    }
 
-    getPerfumes(): Observable<Perfume[]> {
-      return this.http.get<Perfume[]>(this._url);
+    getPerfumeWithId(id: string): Perfume {
+      return this.perfumes.find(el => el.id === id);
+    }
+
+    returnPerfumes() {
+      this.perfumesArrayChanged.emit(this.perfumes.slice());
     }
 }

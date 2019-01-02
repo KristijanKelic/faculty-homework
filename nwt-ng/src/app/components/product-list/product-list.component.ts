@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 import { Perfume } from 'src/app/models/perfume.model';
 import { PerfumesService } from 'src/app/services/perfumes.service';
@@ -10,14 +10,15 @@ import { PerfumesService } from 'src/app/services/perfumes.service';
 })
 export class ProductListComponent implements OnInit {
 
-  perfumes: Perfume[];
+  perfumes: Perfume[] = [];
 
-  constructor(private _perfumesService: PerfumesService) {}
-
-  ngOnInit() {
-    this._perfumesService.getPerfumes().subscribe(data => {
+  constructor(private _perfumesService: PerfumesService) {
+    this._perfumesService.perfumesArrayChanged.subscribe((data) => {
       this.perfumes = data;
-    });
+  });
   }
 
+  ngOnInit() {
+    this._perfumesService.returnPerfumes();
+  }
 }

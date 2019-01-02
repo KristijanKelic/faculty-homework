@@ -8,6 +8,7 @@ import { Perfume } from 'src/app/models/perfume.model';
 })
 export class FavoritesComponent implements OnInit {
   perfume: Perfume = {
+    id: 1,
     name: 'Dior homme intense',
     role: 'men',
     description:

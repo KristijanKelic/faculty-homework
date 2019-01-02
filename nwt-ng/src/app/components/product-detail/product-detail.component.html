@@ -1,3 +1,36 @@
-<p>
-  product-detail works!
-</p>
+<div class="card text-white bg-secondary mb-3">
+  <div class="card-header bg-primary"><h1 class="text-white">{{perfume?.name}}</h1></div>
+  <div class="card-body text-black-50">
+    <div class="row">
+      <div class="col-md-4">
+          <h4 class="card-title ">{{perfume?.role}}</h4>
+      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <a routerLink='' class="float-right clearfix">Go Back</a>
+      </div>
+    </div>
+    <p class="card-text">{{perfume?.description}}</p>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8"><img class="img-circle" [src]="perfume?.imageUrl" [alt]="perfume?.name" /></div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+  <div class="card-body text-black-50">
+    <p>Total rating {{perfume?.rating}} out of {{ perfume?.users.length }} votes</p>
+    <h4>Comments</h4><br>
+    <div class="list-group text-black-50" *ngFor="let item of perfume?.users">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{item.username}}</h5>
+        </div>
+        <p class="mb-1">{{item.comment}}</p>
+        <small>Rating: {{item.rating}}</small>
+        <hr>
+    </div>
+  </div>
+  <div class="card-body">
+    <span class="btn" style="padding:0; margin:0"><i class="fas fa-heart fa-3x"></i></span>
+    <span class="float-right">*****</span>
+  </div>
+</div>

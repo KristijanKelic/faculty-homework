@@ -1,19 +1,20 @@
 <h3 class="card-header bg-primary text-white">{{perfume.name}}</h3>
 <div class="card-body text-black-50 row">
-  <div class="col-md-2">
+  <div class="col-md-4">
       <h5 class="card-title">{{perfume.role}}</h5>
   </div>
-  <div class="col-md-6"></div>
+  <div class="col-md-4"></div>
   <div class="col-md-4">
-      <button class="btn btn-outline-primary float-right clearfix">View more</button>
+      <button class="btn btn-outline-primary float-right clearfix" (click)="loadDetail()">View more</button>
   </div>
 </div>
 <div class="card-body">
-  <img class="img-fluid" [src]="perfume.imageUrl" alt="{{perfume.name}}" style="margin: 0 auto;">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <img class="img-fluid" [src]="perfume.imageUrl" alt="{{perfume.name}}" style="margin: 0 auto;">
+    </div>
+    <div class="col-md-2"></div>
+  </div>
   <p class="card-text">{{perfume.description}}</p>
-</div>
-<hr>
-<div class="card-body">
-  <span class="btn" style="padding:0; margin:0"><i class="fas fa-heart fa-3x"></i></span>
-  <span class="float-right">*****</span>
 </div>
