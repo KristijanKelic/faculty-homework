@@ -1,15 +1,17 @@
-<div class="card text-white bg-primary">
-  <div class="card-header">Favorites</div>
-  <div class="card-body">
-    <div class="row"><h4 class="card-title">{{perfume.name}}</h4></div>
-    <div class="row">
-      <div class="col-md-4">
-        <img [src]="perfume.imageUrl" style="width:50px; height:50px" />
-      </div>
-      <div class="col-md-2"></div>
-      <div class="col-md-6">
-        <p class="card-text">{{perfume.rating}}</p>
+<div class="bg-primary" style="padding:20px">
+  <h2 class="text-white">Favourites</h2>
+</div>
+<div class="list-group">
+    <div *ngFor="let perfume of perfumes" class="list-group-item list-group-item-action" [routerLink]="['/product', perfume.id]">
+      <div class="row">
+        <div class="col-md-4">
+          <img style="width:100%" [src]="perfume.imageUrl" [alt]="perfume.name" />
+        </div>
+        <div class="col-md-8">
+          <div><h6>{{perfume.name}}</h6></div>
+          <div><p>Rating {{perfume.rating}} out of {{perfume.users.length}} votes</p></div>
+        </div>
       </div>
     </div>
-  </div>
 </div>
+  

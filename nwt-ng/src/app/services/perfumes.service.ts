@@ -7,7 +7,8 @@ import { Perfume } from '../models/perfume.model';
 export class PerfumesService {
     private _url = '../../assets/perfumes.json';
     perfumesArrayChanged = new EventEmitter<Perfume[]>();
-    perfumes: Perfume[] = [];
+    private perfumes: Perfume[] = [];
+    private favoruitePerfumes: Perfume[] = [];
 
     constructor(private http: HttpClient) {
       this.http.get<Perfume[]>(this._url).subscribe((data) => {
@@ -22,5 +23,13 @@ export class PerfumesService {
 
     returnPerfumes() {
       this.perfumesArrayChanged.emit(this.perfumes.slice());
+    }
+
+    addToFavorites(item: Perfume) {
+      this.favoruitePerfumes.push(item);
+    }
+
+    getFavorites() {
+      return this.favoruitePerfumes;
     }
 }

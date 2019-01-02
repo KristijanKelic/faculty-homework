@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { PerfumesService } from 'src/app/services/perfumes.service';
@@ -11,6 +11,7 @@ import { Perfume } from 'src/app/models/perfume.model';
 })
 export class ProductDetailComponent implements OnInit {
   perfume: Perfume;
+  @ViewChild('heart') heart: ElementRef;
 
   constructor(private _perfumesService: PerfumesService, private route: ActivatedRoute) { }
 
@@ -18,4 +19,8 @@ export class ProductDetailComponent implements OnInit {
     this.perfume = this._perfumesService.getPerfumeWithId(this.route.snapshot.params['id']);
   }
 
+  addToFavorites() {
+    this._perfumesService.addToFavorites(this.perfume);
+    this.heart.nativeElement.style.color = 'red';
+  }
 }
