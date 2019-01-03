@@ -37,7 +37,7 @@
         <div class="col-md-4"></div>
         <div class="col-md-6">
           <div class="float-right clearfix text-black-50">
-            <rating [max]="5" [customTemplate]="t" (click)="ratePerfume()" [(ngModel)]="rate">
+            <rating [max]="5" [customTemplate]="t" (click)="ratePerfume()" [(ngModel)]="rate" [readonly]="!ratingEnabled">
               <ng-template #t let-i="index" let-v="value">
                   <i class="fas fa-star fa-3x" [ngClass]="{clyellow : i < v}"></i>
               </ng-template>
