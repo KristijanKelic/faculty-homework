@@ -1,3 +1,7 @@
 span.btn:hover {
     color: red;
   }
+
+.clyellow {
+  color: #f2b01e;
+}

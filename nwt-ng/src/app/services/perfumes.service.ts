@@ -32,4 +32,19 @@ export class PerfumesService {
     getFavorites() {
       return this.favoruitePerfumes;
     }
+
+    ratePerfume(item: Perfume, rating: number) {
+      const perfume = this.perfumes.find(el => el.id === item.id);
+      const index = this.perfumes.findIndex(el => el.id === item.id);
+      perfume.users.push({username: 'user', rating: rating, comment: ''});
+      let ratings = 0;
+      for ( const a of perfume.users) {
+        ratings += a.rating;
+      }
+      ratings = ratings / perfume.users.length;
+      perfume.rating = ratings;
+
+      this.perfumes[index] = perfume;
+      this.perfumesArrayChanged.emit(this.perfumes.slice());
+    }
 }

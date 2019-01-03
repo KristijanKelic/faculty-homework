@@ -11,16 +11,25 @@ import { Perfume } from 'src/app/models/perfume.model';
 })
 export class ProductDetailComponent implements OnInit {
   perfume: Perfume;
+  rate: number;
   @ViewChild('heart') heart: ElementRef;
 
-  constructor(private _perfumesService: PerfumesService, private route: ActivatedRoute) { }
+  constructor(private _perfumesService: PerfumesService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.perfume = this._perfumesService.getPerfumeWithId(this.route.snapshot.params['id']);
+    this.route.params
+      .subscribe((params) => {
+        this.perfume = this._perfumesService.getPerfumeWithId(params.id);
+      });
   }
 
   addToFavorites() {
     this._perfumesService.addToFavorites(this.perfume);
     this.heart.nativeElement.style.color = 'red';
+  }
+
+  ratePerfume() {
+    this._perfumesService.ratePerfume(this.perfume, this.rate);
   }
 }
