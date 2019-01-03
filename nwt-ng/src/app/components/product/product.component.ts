@@ -9,15 +9,12 @@ import { Perfume } from 'src/app/models/perfume.model';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-
   @Input() perfume: Perfume;
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   loadDetail() {
     this.router.navigate(['/product', this.perfume.id]);
   }
-
 }

@@ -1,5 +1,5 @@
 export class Perfume {
-  public id: string;
+  public id: number;
   public name: string;
   public role: string;
   public description: string;
@@ -7,7 +7,7 @@ export class Perfume {
   public rating: number;
   public users: [{username: string, rating: number, comment: string}];
 
-  constructor(id: string,
+  constructor(id: number,
               name: string,
               role: string,
               desc: string,

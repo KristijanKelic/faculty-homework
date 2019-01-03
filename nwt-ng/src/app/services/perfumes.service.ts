@@ -23,7 +23,7 @@ export class PerfumesService {
 
     // Simple method uses Array.prototype.find method to get correct element from an array
     // method recieves ID to compare with
-    getPerfumeWithId(id: string): Perfume {
+    getPerfumeWithId(id: number): Perfume {
       return this.perfumes.find(el => el.id === id);
     }
 

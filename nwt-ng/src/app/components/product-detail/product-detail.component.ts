@@ -38,7 +38,7 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params
       .subscribe((params) => {
-        this.perfume = this._perfumesService.getPerfumeWithId(params.id);
+        this.perfume = this._perfumesService.getPerfumeWithId(+params.id);
 
         if (this.perfume) {
           if (this.perfume.users.find(el => el.username === 'user') !== undefined) {
