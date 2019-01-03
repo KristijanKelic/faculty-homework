@@ -33,12 +33,12 @@
     "rating": 3.6,
     "users": [{
             "username": "Paula",
-            "rating": "4.5",
+            "rating": 4.5,
             "comment": "It's smells nice, but still not so good to give it 5 star rating"
         },
         {
             "username": "Victoria",
-            "rating": "2.8",
+            "rating": 2.8,
             "comment": "Giorgio Armani has really good perfumes, but this one dissapointed me"
         }]
     },

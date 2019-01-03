@@ -19,13 +19,14 @@
     </div>
     <div class="card-body text-black-50">
       <p>Total rating {{perfume?.rating}} out of {{ perfume?.users.length }} votes</p>
-      <h4>Comments</h4><br>
+      <h4>Comments</h4>
+      <hr>
       <div class="list-group text-black-50" *ngFor="let item of perfume?.users">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">{{item.username}}</h5>
           </div>
+          <rating [max]="5" [readonly]="true" [(ngModel)]="item.rating"></rating>
           <p class="mb-1">{{item.comment}}</p>
-          <small>Rating: {{item.rating}}</small>
           <hr>
       </div>
     </div>

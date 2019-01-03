@@ -29,9 +29,9 @@ export class ProductDetailComponent implements OnInit {
     Subscribing to those changes will refresh data.
 
     -----------------------------------------------------------------------------------------------------
-    Inside ngOnInit I am also checking if currently loaded perfume is already in list of favourites
+    Inside ngOnInit I am also checking if currently loaded perfume is already in list of favorites
     which is inside _perfumesService. Depending on what's the result isFavourite property will control
-    adding or removing it from favoruites.
+    adding or removing it from favorites.
 
     Within subscribe also checking if currently loaded perfume is already rated
   */
@@ -60,15 +60,15 @@ export class ProductDetailComponent implements OnInit {
   }
 
   /*
-    This method is calling addToFavourites or removeFromFavourites depending on the flag isFavourite
+    This method is calling addTofavorites or removeFromfavorites depending on the flag isFavourite
   */
   addToFavorites() {
     if (!this.isFavourite) {
-      this._perfumesService.addToFavourites(this.perfume);
+      this._perfumesService.addToFavorites(this.perfume);
       this.heart.nativeElement.style.color = 'red';
       this.isFavourite = true;
     } else {
-      this._perfumesService.removeFromeFavourites(this.perfume);
+      this._perfumesService.removeFromeFavorites(this.perfume);
       this.heart.nativeElement.style.color = 'grey';
       this.isFavourite = false;
     }
