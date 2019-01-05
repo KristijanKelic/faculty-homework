@@ -66,7 +66,6 @@ export class PerfumesService {
       ratings = ratings / perfume.users.length;
       perfume.rating = Math.round(ratings * 100) / 100;
 
-      this.perfumes[index] = perfume;
       this.perfumesArrayChanged.emit(this.perfumes.slice());
     }
 
