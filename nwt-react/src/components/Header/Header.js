@@ -17,6 +17,7 @@ const header = props => (
         className="form-control mr-sm-2"
         type="text"
         placeholder="Search"
+        onChange={props.change}
       />
     </div>
   </nav>
