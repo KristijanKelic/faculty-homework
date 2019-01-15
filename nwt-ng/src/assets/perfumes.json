@@ -116,5 +116,64 @@
             "rating": 2.6,
             "comment": "m really shocked by the amount of positive reviews for this fragrance. For me it smells like Dove soap. Nothing less, nothing more, just basic soap..."
         }]
+    },
+    {
+      "id": 8,
+      "name": "Acqua di Gio Giorgio Armani",
+      "role": "men",
+      "description": "Inspired by beauty of Pantellerie, where he spent his vacation, Armani created the aroma of Aqua di Gio for men and women. The fragrance for men is a scent of freedom, full of wind and water. The composition is built of a perfect harmony of sweet and salty notes of sea water and nuances of sunny warmth on your skin. Aqua di Gio is full of scorching Mediterranean sun. Bitter citrus with aromatic nuance of rosemary intertwines with salty, sea nuances and pellucid hedione. Sharp notes of spices are softened by woody base with warm, musky trail.",
+      "imageUrl": "https://fimgs.net/mdimg/perfume/375x500.410.jpg",
+      "rating": 4.6,
+      "users": [{
+        "username": "Mathew",
+        "rating": 4.5,
+        "comment": "This is a good scent, now that I put time and effort into this fragrance this year. Its too common still until this day though in 2018. But man let me tell you, Salvatore Ferragamo Acqua Di Essenziale Colonia, (another water scent) blows this out of the water. Go try it. No but but positive responses over ADG. AWESOME"
+      },{
+          "username": "Marcus",
+          "rating": 4.5,
+          "comment": "Fresh opening and heart is excellent, pungent or bitter ending gets weird to my nose. No one else seems to mention the strange ending?"
+        },{
+          "username": "Rock",
+          "rating": 5,
+          "comment": "Respect out of efficacy: I tested this again recently and women aged 20-35 still say they like this scent very much. Still not dated. If you are interested, I put this and AdG Profumo on each hand and asked 10 random people which was better. The results were 50/50."
+        },{
+          "username": "Daniel",
+          "rating": 4.5,
+          "comment": "Mind-blowing, Fresh and classic and probably best perfume of last 2 decades."
+        }]
+    },
+    {
+      "id": 9,
+      "name": "Amarige D'Amour Givenchy",
+      "role": "women",
+      "description": "Amarige D'Amour by Givenchy is a Chypre Floral fragrance for women. Amarige D'Amour was launched in 2003. Top notes are black currant, cassia and sweet pea; middle notes are jasmine, rose hip, lily-of-the-valley, rose and white mimosa; base notes are sandalwood and ambergris.",
+      "imageUrl": "https://fimgs.net/mdimg/perfume/375x500.758.jpg",
+      "rating": 4,
+      "users": [{
+        "username": "Natalia",
+        "rating": 3.5,
+        "comment": "A very sweet-pea fragrance. This actually smells a tad oldfashioned and made me feel frumpy and matronly and I am one who loves old fragrances. I think this reminded me of an old Yardley type fragrance very linear and not much going on."
+      },{
+          "username": "Victoria",
+          "rating": 4.5,
+          "comment": "I was given this for Xmas. It is pretty light and unfortunatelly does not last on my skin. I do prefer the original one."
+        }]
+    },
+    {
+      "id": 10,
+      "name": "5th Avenue Elizabeth Arden",
+      "role": "women",
+      "description": "5th Avenue is a world-famous street; it is a symbol of wealth, imagination that has turned into reality. This is a fragrance for a woman who possesses a sense of style, a woman which is intelligent, successful, elegant, and easily walks between luxurious showcases, feeling good in her own skin. The top notes are lilac, linden blossom, dewy magnolia, mandarin and bergamot. The heart notes are Bulgarian pink violet, ylang-ylang, jasmine, Indian tuberose, peach, carnation and nutmeg. The base is composed of amber, Tibetan musk, sandalwood, iris and vanilla. The fragrance was created by Ann Gotlieb in 1996.",
+      "imageUrl": "https://fimgs.net/mdimg/perfume/375x500.81.jpg",
+      "rating": 2.5,
+      "users": [{
+        "username": "Lulu",
+        "rating": 1,
+        "comment": "plain , dull , no features , no personality , smells like nothing"
+      },{
+          "username": "Matheya",
+          "rating": 4,
+          "comment": "the only scent i get clearly is one of spices, but still a lovely aroma. starting the drydown which is much more feminine. i got this beauty for a very low price on mercari, cant believe it!"
+        }]
     }
 ]

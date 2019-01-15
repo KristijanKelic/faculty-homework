@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const perfume = props => (
   <div style={{marginBottom: '40px'}}>
@@ -11,9 +12,9 @@ const perfume = props => (
       </div>
       <div className="col-md-4" />
       <div className="col-md-4">
-        <button className="btn btn-outline-primary float-right clearfix">
+        <Link to={{pathname: '/product'}} params={{id: props.perfume.id}} className="btn btn-outline-primary float-right clearfix">
           View more
-        </button>
+        </Link>
       </div>
     </div>
     <div className="card-body">
