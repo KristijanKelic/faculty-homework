@@ -1,17 +1,32 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
+
+import "./PerfumeDetails.css";
 
 const perfumeDetails = props => {
-  console.log("DETALJI", props);
+  let contentComments = props.perfume.users.map(el => {
+    return (
+      <>
+        <div className="d-flex w-100 justify-content-between">
+          <h5 className="mb-1">{el.username}</h5>
+        </div>
+        <p className="mb-1">{el.comment}</p>
+        <hr />
+      </>
+    );
+  });
+
   return (
-    {/*<div className="card text-white bg-secondary mb-3">
+    <div className="card text-white bg-secondary mb-3">
       <div className="card-header bg-primary">
-        <h1 className="text-white">{props.perfume.name}</h1>
+        <h1 className="text-white">{props.perfume.name.toLocaleUpperCase()}</h1>
       </div>
-      <div className="card-body text-black-50">
+      <div className="card-body text-black bg-secondary">
         <div className="row">
           <div className="col-md-4">
-            <h4 className="card-title">{props.perfume.role}</h4>
+            <h4 className="card-title">
+              {props.perfume.role.toLocaleUpperCase()}
+            </h4>
           </div>
           <div className="col-md-4" />
           <div className="col-md-4">
@@ -33,23 +48,28 @@ const perfumeDetails = props => {
           <div className="col-md-2" />
         </div>
       </div>
-      <div className="card-body text-black-50">
+      <div className="card-body text-black">
         <p>
-          Total rating {props.perfue.rating} out of {props.perfume.users.length}{" "}
-          votes
+          Total rating {props.perfume.rating} out of{" "}
+          {props.perfume.users.length} votes
         </p>
         <h4>Comments</h4>
         <hr />
-        <div className="list-group text-black-50">
-          <p>CONTENT FOR PETLJA</p>
+        <div className="list-group text-black">
+          <p>{contentComments}</p>
         </div>
-        <p className="mb-1">KOMENTAR IZ FORA</p>
-        <hr />
       </div>
-      <div className="card-body">
+      <div className="card-body text-black">
         <div className="row">
           <div className="col-md-2">
-            <span className="btn" style={{ padding: 0, margin: 0 }}>
+            <span
+              style={{
+                padding: 0,
+                margin: 0,
+                cursor: "pointer",
+                color: "grey"
+              }}
+            >
               <i class="fas fa-heart fa-3x" />
             </span>
           </div>
@@ -61,7 +81,7 @@ const perfumeDetails = props => {
           </div>
         </div>
       </div>
-  </div>*/}
+    </div>
   );
 };
 

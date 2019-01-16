@@ -85,9 +85,9 @@ class App extends Component {
                   render={() => <Perfumes perfumes={this.state.filteredList} />}
                 />
                 <Route
-                  path="/product"               
-                  render={() => (
-                    <PerfumeDetails perfume={this.state.perfumesList} />
+                  path="/product/:id"               
+                  render={(props) => (
+                    <PerfumeDetails {...props} perfume={this.state.perfumesList[props.match.params.id - 1]} />
                   )}
                 />
                 {/*<Perfumes perfumes={this.state.filteredList} />*/}
