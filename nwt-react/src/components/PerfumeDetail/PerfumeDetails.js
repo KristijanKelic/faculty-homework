@@ -1,20 +1,66 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import StarRating from "react-star-ratings";
 
 import "./PerfumeDetails.css";
 
 const perfumeDetails = props => {
   let contentComments = props.perfume.users.map(el => {
     return (
-      <>
+      <div key={el.username}>
         <div className="d-flex w-100 justify-content-between">
           <h5 className="mb-1">{el.username}</h5>
         </div>
+        <StarRating
+          name={el.username}
+          starDimension="15px"
+          totalStars={5}
+          disabled={true}
+          rating={el.rating}
+          starRatedColor="#2196F3"
+          starEmptyColor="grey"
+        />
         <p className="mb-1">{el.comment}</p>
         <hr />
-      </>
+      </div>
     );
   });
+
+  let userVoted = props.perfume.users.find(el => el.username === "user");
+  let ratingToDisplay;
+  if (userVoted) {
+    ratingToDisplay = (
+      <StarRating
+        rating={userVoted.rating}
+        starRatedColor="#2196F3"
+        starEmptyColor="grey"
+        starHoverColor="#2196F3"
+        disabled={true}
+        numberOfStars={5}
+        name="voted-rating"
+      />
+    );
+  } else {
+    ratingToDisplay = (
+      <StarRating
+        rating={0}
+        starRatedColor="#2196F3"
+        starHoverColor="#2196F3"
+        starEmptyColor="grey"
+        changeRating={props.ratePerfume}
+        numberOfStars={5}
+        name="rating"
+      />
+    );
+  }
+
+  let favorited = null;
+  if (props.favorites.length > 0) {
+    favorited = props.favorites.find(el => el.id === props.perfume.id);
+  }
+  let classFavorited = "grey";
+  if (favorited) classFavorited = "favorited";
+
 
   return (
     <div className="card text-white bg-secondary mb-3">
@@ -50,33 +96,34 @@ const perfumeDetails = props => {
       </div>
       <div className="card-body text-black">
         <p>
-          Total rating {props.perfume.rating} out of{" "}
-          {props.perfume.users.length} votes
+          Total rating {props.perfume.rating} based on{" "}
+          {props.perfume.users.length} reviews
         </p>
         <h4>Comments</h4>
         <hr />
         <div className="list-group text-black">
-          <p>{contentComments}</p>
+          <div>{contentComments}</div>
         </div>
       </div>
       <div className="card-body text-black">
         <div className="row">
           <div className="col-md-2">
             <span
+              onClick={props.addToFavorites}
               style={{
                 padding: 0,
                 margin: 0,
-                cursor: "pointer",
-                color: "grey"
+                cursor: "pointer"
               }}
+              className={classFavorited}
             >
-              <i class="fas fa-heart fa-3x" />
+              <i className="fas fa-heart fa-3x" />
             </span>
           </div>
           <div className="col-md-4" />
           <div className="col-md-6">
             <div className="float-right clearfix text-black-50">
-              <p>STAR RATING</p>
+              {ratingToDisplay}
             </div>
           </div>
         </div>

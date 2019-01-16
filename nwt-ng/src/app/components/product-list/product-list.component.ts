@@ -9,7 +9,6 @@ import { PerfumesService } from 'src/app/services/perfumes.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-
   perfumes: Perfume[] = [];
 
   /*Here inside the construtor I am subscribing to the custom event emmiter from the service which emits
@@ -18,9 +17,9 @@ export class ProductListComponent implements OnInit {
    Reason to do that is because service returns slice(copy) of an original array to the component
    */
   constructor(private _perfumesService: PerfumesService) {
-    this._perfumesService.perfumesArrayChanged.subscribe((data) => {
+    this._perfumesService.perfumesArrayChanged.subscribe(data => {
       this.perfumes = data;
-  });
+    });
   }
 
   ngOnInit() {

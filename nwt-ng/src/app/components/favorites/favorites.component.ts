@@ -9,7 +9,7 @@ import { PerfumesService } from 'src/app/services/perfumes.service';
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent implements OnInit {
-  constructor(private _perfumesService: PerfumesService) { }
+  constructor(private _perfumesService: PerfumesService) {}
 
   perfumes: Perfume[] = [];
 

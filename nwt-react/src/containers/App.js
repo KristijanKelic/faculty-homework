@@ -13,46 +13,7 @@ class App extends Component {
   state = {
     perfumesList: [],
     filteredList: [],
-    favoritesList: [
-      {
-        id: 1,
-        name: "Dior homme intense",
-        role: "men",
-        description:
-          "Dior Homme by Christian Dior is a Woody Floral Musk fragrance for men. Dior Homme was launched in 2011. The nose behind this fragrance is Francois Demachy. Top notes are lavender, sage and bergamot; middle notes are iris, amber and cacao; base notes are vetiver, patchouli and leather.",
-        imageUrl: "https://fimgs.net/mdimg/perfume/375x500.13015.jpg",
-        rating: 5.0,
-        users: [
-          {
-            username: "Christian",
-            rating: 5,
-            comment: "Very good"
-          },
-          {
-            username: "Leonardno",
-            rating: 5,
-            comment: "I'm in love with this. Thumbs up"
-          }
-        ]
-      },
-      {
-        id: 2,
-        name: "Givenchy Pi",
-        role: "men",
-        description:
-          "Oriental woody perfume Pi by the house of  is excellent for eternal explorers and fans of sensual experiments. Its geometric bottle with perfectly clear lines contains a woody, sensual scent. Basil, rosemary, tarragon and neroli introduce freshness into this generally warm, oriental composition with an accentuated strong note of Guaiac wood standing in union with balmy notes of vanilla, tonka and benzoin resin. There are several successors of this edition. Their bottles were designed similarly, with an exception of modern and futuristic Pi Neo perfume from 2008. The bottle for Pi was created by Serge Mansau. Their composition opens with aromas of basil, rosemary, tarragon and mandarin. A heart encompasses neroli, geranium, lily of the valley and anise, while base notes include: vanilla, tonka, cedar, benzoin, almond and yellow sugar.",
-        imageUrl: "https://fimgs.net/mdimg/perfume/375x500.39.jpg",
-        rating: 5.0,
-        users: [
-          {
-            username: "Christian",
-            rating: 5,
-            comment:
-              "Givenchy always suprises me, this one is awesome. Thumbs up"
-          }
-        ]
-      }
-    ]
+    favoritesList: []
   };
 
   componentWillMount() {
@@ -71,6 +32,36 @@ class App extends Component {
     });
     this.setState({ filteredList: helper });
   };
+  ratePerfumeHandler = (event, id) => {
+    let perfume = this.state.perfumesList.find(el => +el.id === +id);
+    let perfumeIndex = this.state.perfumesList.findIndex(el => +el.id === +id);
+
+    let perfumes = this.state.perfumesList;
+
+    perfume.users.push({
+      username: "user",
+      rating: event,
+      comment: ""
+    });
+
+    perfumes[perfumeIndex] = perfume;
+    this.setState({
+      perfumesList: perfumes,
+      filteredList: perfumes
+    });
+  };
+  addToFavoritesHandler = id => {
+    let favorites = this.state.favoritesList;
+    if (favorites.find(el => +el.id === +id)) {
+      let index = favorites.findIndex(el => +el.id === +id);
+      favorites.splice(index, 1);
+    } else {
+      favorites.push(this.state.perfumesList.find(el => +el.id === +id));
+    }
+    this.setState({
+      favoritesList: favorites
+    });
+  };
   render() {
     return (
       <BrowserRouter>
@@ -85,9 +76,21 @@ class App extends Component {
                   render={() => <Perfumes perfumes={this.state.filteredList} />}
                 />
                 <Route
-                  path="/product/:id"               
-                  render={(props) => (
-                    <PerfumeDetails {...props} perfume={this.state.perfumesList[props.match.params.id - 1]} />
+                  path="/product/:id"
+                  render={props => (
+                    <PerfumeDetails
+                      {...props}
+                      perfume={
+                        this.state.perfumesList[props.match.params.id - 1]
+                      }
+                      ratePerfume={event =>
+                        this.ratePerfumeHandler(event, props.match.params.id)
+                      }
+                      addToFavorites={() =>
+                        this.addToFavoritesHandler(props.match.params.id)
+                      }
+                      favorites={this.state.favoritesList}
+                    />
                   )}
                 />
                 {/*<Perfumes perfumes={this.state.filteredList} />*/}

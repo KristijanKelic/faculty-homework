@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { PerfumesService } from 'src/app/services/perfumes.service';
 
@@ -8,13 +8,11 @@ import { PerfumesService } from 'src/app/services/perfumes.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  constructor(private _perfumesService: PerfumesService) { }
+  constructor(private _perfumesService: PerfumesService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   filterPerfumes(a) {
     this._perfumesService.filterPerfumes(a.value);
   }
-
 }

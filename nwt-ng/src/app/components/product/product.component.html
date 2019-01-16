@@ -1,20 +1,30 @@
-<h3 class="card-header bg-primary text-white">{{perfume.name}}</h3>
+<h3 class="card-header bg-primary text-white">{{ perfume.name }}</h3>
 <div class="card-body text-black-50 row">
   <div class="col-md-4">
-      <h5 class="card-title">{{perfume.role}}</h5>
+    <h5 class="card-title">{{ perfume.role }}</h5>
   </div>
   <div class="col-md-4"></div>
   <div class="col-md-4">
-      <button class="btn btn-outline-primary float-right clearfix" (click)="loadDetail()">View more</button>
+    <button
+      class="btn btn-outline-primary float-right clearfix"
+      (click)="loadDetail()"
+    >
+      View more
+    </button>
   </div>
 </div>
 <div class="card-body">
   <div class="row">
     <div class="col-md-6">
-        <img class="img-fluid" [src]="perfume.imageUrl" alt="{{perfume.name}}" style="margin: 0 auto;">
+      <img
+        class="img-fluid"
+        [src]="perfume.imageUrl"
+        alt="{{ perfume.name }}"
+        style="margin: 0 auto;"
+      />
     </div>
     <div class="col-md-6">
-        <p class="card-text">{{perfume.description}}</p>
+      <p class="card-text">{{ perfume.description }}</p>
     </div>
   </div>
 </div>

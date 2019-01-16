@@ -17,6 +17,4 @@ This is school assignment for understanding react and angular
 4. More about product
    * All information displayed about product (user ratings, description, ...)
 
-Note (since backend is not a condition, the page should not remember your rating and favorites afterwards
-refresh).
- 
+Note (since backend is not a condition, the page should not remember your rating and favorites after refresh). 

@@ -16,8 +16,10 @@ export class ProductDetailComponent implements OnInit {
   isFavourite: boolean;
   @ViewChild('heart') heart: ElementRef;
 
-  constructor(private _perfumesService: PerfumesService,
-              private route: ActivatedRoute) { }
+  constructor(
+    private _perfumesService: PerfumesService,
+    private route: ActivatedRoute
+  ) {}
 
   /*
     Inside ngOnInit method I am subscribing to the route params observable because i want to refresh data
@@ -36,22 +38,29 @@ export class ProductDetailComponent implements OnInit {
     Within subscribe also checking if currently loaded perfume is already rated
   */
   ngOnInit() {
-    this.route.params
-      .subscribe((params) => {
-        this.perfume = this._perfumesService.getPerfumeWithId(+params.id);
+    this.route.params.subscribe(params => {
+      this.perfume = this._perfumesService.getPerfumeWithId(+params.id);
 
-        if (this.perfume) {
-          if (this.perfume.users.find(el => el.username === 'user') !== undefined) {
-            this.rate = this.perfume.users.find(el => el.username === 'user').rating;
-            this.ratingEnabled = false;
-          } else {
-            this.rate = 0;
-            this.ratingEnabled = true;
-          }
+      if (this.perfume) {
+        if (
+          this.perfume.users.find(el => el.username === 'user') !== undefined
+        ) {
+          this.rate = this.perfume.users.find(
+            el => el.username === 'user'
+          ).rating;
+          this.ratingEnabled = false;
+        } else {
+          this.rate = 0;
+          this.ratingEnabled = true;
         }
-      });
+      }
+    });
 
-    if (this._perfumesService.getFavorites().find(el => el.id === this.perfume.id) !== undefined) {
+    if (
+      this._perfumesService
+        .getFavorites()
+        .find(el => el.id === this.perfume.id) !== undefined
+    ) {
       this.isFavourite = true;
       this.heart.nativeElement.style.color = 'red';
     } else {

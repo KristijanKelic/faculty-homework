@@ -26,7 +26,7 @@ const favorites = props => {
                 </div>
                 <div>
                   <p>
-                    Rating {el.rating} out of {el.users.length} votes
+                    Rating {el.rating} based on {el.users.length} reviews
                   </p>
                 </div>
               </div>
