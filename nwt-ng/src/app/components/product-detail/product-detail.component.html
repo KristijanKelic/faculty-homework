@@ -30,39 +30,50 @@
       Total rating {{ perfume?.rating }} based on
       {{ perfume?.users.length }} reviews
     </p>
-    <h4>Comments</h4>
+    <h4>Reviews</h4>
     <hr />
     <div class="list-group text-black-50" *ngFor="let item of perfume?.users">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{ item.username }}</h5>
+      <div class="row">
+        <div class="col-sm-2">
+          <span class="text-black"
+            ><i class="fas fa-user-circle fa-5x"></i
+          ></span>
+        </div>
+        <div class="col-sm-10">
+          <h5 class="mb-1">{{ item.username }}</h5>
+          <rating
+            [max]="5"
+            [readonly]="true"
+            [(ngModel)]="item.rating"
+          ></rating>
+          <p class="mb-1">{{ item.comment }}</p>
+        </div>
       </div>
-      <rating [max]="5" [readonly]="true" [(ngModel)]="item.rating"></rating>
-      <p class="mb-1">{{ item.comment }}</p>
       <hr />
     </div>
   </div>
-  <div class="card-body">
-    <div class="row">
-      <div class="col-md-2">
-        <span class="btn" style="padding:0; margin:0"
-          ><i class="fas fa-heart fa-3x" (click)="addToFavorites()" #heart></i
-        ></span>
-      </div>
-      <div class="col-md-4"></div>
-      <div class="col-md-6">
-        <div class="float-right clearfix text-black-50">
-          <rating
-            [max]="5"
-            [customTemplate]="t"
-            (click)="ratePerfume()"
-            [(ngModel)]="rate"
-            [readonly]="!ratingEnabled"
-          >
-            <ng-template #t let-i="index" let-v="value">
-              <i class="fas fa-star fa-3x" [ngClass]="{ clyellow: i < v }"></i>
-            </ng-template>
-          </rating>
-        </div>
+</div>
+<div class="card-body">
+  <div class="row">
+    <div class="col-md-2">
+      <span class="btn" style="padding:0; margin:0"
+        ><i class="fas fa-heart fa-3x" (click)="addToFavorites()" #heart></i
+      ></span>
+    </div>
+    <div class="col-md-4"></div>
+    <div class="col-md-6">
+      <div class="float-right clearfix text-black-50">
+        <rating
+          [max]="5"
+          [customTemplate]="t"
+          (click)="ratePerfume()"
+          [(ngModel)]="rate"
+          [readonly]="!ratingEnabled"
+        >
+          <ng-template #t let-i="index" let-v="value">
+            <i class="fas fa-star fa-3x" [ngClass]="{ clyellow: i < v }"></i>
+          </ng-template>
+        </rating>
       </div>
     </div>
   </div>

@@ -5,22 +5,27 @@ import StarRating from "react-star-ratings";
 import "./PerfumeDetails.css";
 
 const perfumeDetails = props => {
-  let contentComments = props.perfume.users.map(el => {
+  let contentReviews = props.perfume.users.map(el => {
     return (
-      <div key={el.username}>
-        <div className="d-flex w-100 justify-content-between">
-          <h5 className="mb-1">{el.username}</h5>
+      <div key={el.username} className="row">
+        <div className="col-sm-2">
+          <span>
+            <i class="fas fa-user-circle fa-5x" />
+          </span>
         </div>
-        <StarRating
-          name={el.username}
-          starDimension="15px"
-          totalStars={5}
-          disabled={true}
-          rating={el.rating}
-          starRatedColor="#2196F3"
-          starEmptyColor="grey"
-        />
-        <p className="mb-1">{el.comment}</p>
+        <div className="col-sm-10">
+          <h5 className="mb-1">{el.username}</h5>
+          <StarRating
+            name={el.username}
+            starDimension="15px"
+            totalStars={5}
+            disabled={true}
+            rating={el.rating}
+            starRatedColor="#2196F3"
+            starEmptyColor="grey"
+          />
+          <p className="mb-1">{el.comment}</p>
+        </div>
         <hr />
       </div>
     );
@@ -61,7 +66,6 @@ const perfumeDetails = props => {
   let classFavorited = "grey";
   if (favorited) classFavorited = "favorited";
 
-
   return (
     <div className="card text-white bg-secondary mb-3">
       <div className="card-header bg-primary">
@@ -99,10 +103,10 @@ const perfumeDetails = props => {
           Total rating {props.perfume.rating} based on{" "}
           {props.perfume.users.length} reviews
         </p>
-        <h4>Comments</h4>
+        <h4>Reviews</h4>
         <hr />
         <div className="list-group text-black">
-          <div>{contentComments}</div>
+          <div>{contentReviews}</div>
         </div>
       </div>
       <div className="card-body text-black">
