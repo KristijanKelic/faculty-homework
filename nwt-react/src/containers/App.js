@@ -13,11 +13,31 @@ class App extends Component {
   state = {
     perfumesList: [],
     filteredList: [],
-    favoritesList: []
+    favoritesList: [],
+    first: true
   };
 
+  fetchData() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(data);
+      }, 2000)
+    })
+  }
+
   componentWillMount() {
-    this.setState({ perfumesList: data, filteredList: data });
+    /* fetch('http://localhost:3000/nwt-react/src/assets/perfumes.json')
+      .then(res => {
+        return res.json()
+      })
+      .then(dat => {
+        console.log(dat);
+      }) */
+      this.fetchData()
+        .then(res => {
+          this.setState({perfumesList: res, filteredList: res})
+        })
+    //this.setState({ perfumesList: data, filteredList: data });
   }
   searchFilterHandler = event => {
     let helper = this.state.perfumesList.filter(el => {
@@ -30,7 +50,7 @@ class App extends Component {
           .includes(event.target.value.toLocaleLowerCase())
       );
     });
-    this.setState({ filteredList: helper });
+    this.setState({ filteredList: helper, first: false });
   };
   ratePerfumeHandler = (event, id) => {
     let perfume = this.state.perfumesList.find(el => +el.id === +id);
@@ -73,7 +93,7 @@ class App extends Component {
                 <Route
                   path="/"
                   exact
-                  render={() => <Perfumes perfumes={this.state.filteredList} />}
+                  render={() => <Perfumes perfumes={this.state.filteredList} first={this.state.first} />}
                 />
                 <Route
                   path="/product/:id"
