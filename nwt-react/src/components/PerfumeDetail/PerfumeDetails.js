@@ -10,7 +10,7 @@ const perfumeDetails = props => {
       <div key={el.username} className="row">
         <div className="col-sm-2">
           <span>
-            <i class="fas fa-user-circle fa-5x" />
+            <i className="fas fa-user-circle fa-5x" />
           </span>
         </div>
         <div className="col-sm-10">
