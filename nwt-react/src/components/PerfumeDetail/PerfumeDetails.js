@@ -21,7 +21,7 @@ const perfumeDetails = props => {
             totalStars={5}
             disabled={true}
             rating={el.rating}
-            starRatedColor="#2196F3"
+            starRatedColor="#f4eb42"
             starEmptyColor="grey"
           />
           <p className="mb-1">{el.comment}</p>
@@ -37,9 +37,9 @@ const perfumeDetails = props => {
     ratingToDisplay = (
       <StarRating
         rating={userVoted.rating}
-        starRatedColor="#2196F3"
+        starRatedColor="#f4eb42"
         starEmptyColor="grey"
-        starHoverColor="#2196F3"
+        starHoverColor="#f4eb42"
         disabled={true}
         numberOfStars={5}
         name="voted-rating"
@@ -49,8 +49,8 @@ const perfumeDetails = props => {
     ratingToDisplay = (
       <StarRating
         rating={0}
-        starRatedColor="#2196F3"
-        starHoverColor="#2196F3"
+        starRatedColor="#f4eb42"
+        starHoverColor="#f4eb42"
         starEmptyColor="grey"
         changeRating={props.ratePerfume}
         numberOfStars={5}
@@ -68,7 +68,7 @@ const perfumeDetails = props => {
 
   return (
     <div className="card text-white bg-secondary mb-3">
-      <div className="card-header bg-primary">
+      <div className="card-header bg-dark">
         <h1 className="text-white">{props.perfume.name.toLocaleUpperCase()}</h1>
       </div>
       <div className="card-body text-black bg-secondary">
@@ -81,7 +81,7 @@ const perfumeDetails = props => {
           <div className="col-md-4" />
           <div className="col-md-4">
             <Link to="/" className="float-right clearfix">
-              Go Back
+              Back
             </Link>
           </div>
         </div>

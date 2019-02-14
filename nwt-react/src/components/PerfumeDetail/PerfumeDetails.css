@@ -1,5 +1,5 @@
 span i:hover {
-  color: #2196F3;
+  color: red;
 }
 
 .text-black {
@@ -7,7 +7,7 @@ span i:hover {
 }
 
 .favorited {
-  color: #2196F3;
+  color: red;
 }
 
 .grey {

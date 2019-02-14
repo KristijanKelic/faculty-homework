@@ -37,7 +37,7 @@ const favorites = props => {
     });
   } else {
     content = (
-      <div className="row bg-primary text-white">
+      <div className="row bg-dark text-white">
         <div className="col-md-2" />
         <div className="col-md-8">
           <h6 style={{ textAlign: "center" }}>You have no favorite perfume</h6>
@@ -47,7 +47,7 @@ const favorites = props => {
     );
   }
   return (
-    <div className="bg-primary" style={{ padding: "20px" }}>
+    <div className="bg-dark" style={{ padding: "20px" }}>
       <h2 className="text-white">Favorites</h2>
       <div className="list-group">{content}</div>
     </div>

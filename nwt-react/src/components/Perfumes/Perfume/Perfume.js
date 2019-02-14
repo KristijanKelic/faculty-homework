@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const perfume = props => (
   <div style={{ marginBottom: "40px" }}>
-    <h3 className="card-header bg-primary text-white">
+    <h3 className="card-header bg-dark text-white">
       {props.perfume.name.toLocaleUpperCase()}
     </h3>
     <div className="card-body text-black row">
@@ -14,7 +14,7 @@ const perfume = props => (
       <div className="col-md-4">
         <Link
           to={"/product/" + props.perfume.id}
-          className="btn btn-outline-primary float-right clearfix"
+          className="btn btn-outline-dark float-right clearfix"
         >
           View more
         </Link>

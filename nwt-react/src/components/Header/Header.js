@@ -4,7 +4,7 @@ import "./Header.css";
 import logo from '../../assets/icon.png';
 
 const header = props => (
-  <nav className="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+  <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div className="col-md-2">
       <span className="navbar-brand" href="#">
         <img alt="brand" src={logo} className="img-fluid" />
