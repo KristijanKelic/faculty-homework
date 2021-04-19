@@ -1,4 +1,4 @@
-# FacultyHomework (about)
+# faculty-homework
 This is school assignment for understanding react and angular
 
 ## Requirements of Homework
